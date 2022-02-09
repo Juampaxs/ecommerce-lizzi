@@ -1,6 +1,10 @@
 const ItemListContainer = ({msg}) => {
     return (
-        <div>{msg}</div>
+        <div>
+            {msg}
+            <ItemCount stock='5' initial='1' /> 
+        </div>
+        
     )
 }
 
