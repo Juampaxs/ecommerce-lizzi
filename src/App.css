@@ -47,3 +47,7 @@
   height: fit-content;
   width: 15%;
 }
+
+.item-container {
+  background-color: darkcyan;
+}
