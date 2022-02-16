@@ -48,6 +48,16 @@
   width: 15%;
 }
 
+.item-list-container {
+  align-items: center;
+  align-content: space-between;
+  flex-wrap: wrap !important;
+}
+
 .item-container {
   background-color: darkcyan;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap !important;
 }
