@@ -41,6 +41,7 @@
 .navbar {
   background-color: crimson;
   justify-content: center;
+  width: 100%;
 }
 
 .navbar-logo {
@@ -48,16 +49,8 @@
   width: 15%;
 }
 
-.item-list-container {
-  align-items: center;
-  align-content: space-between;
-  flex-wrap: wrap !important;
-}
-
-.item-container {
-  background-color: darkcyan;
-  position: relative;
+.item-count-container {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap !important;
 }
+

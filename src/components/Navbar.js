@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from './CartWidget';
 import logo from './images/Logo.png'; 
@@ -10,14 +11,14 @@ const Navbar = () => {
                     <img className="navbar-logo" src={logo} />
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <a className="nav-link active" aria-current="page" href="#">Home</a>
-                            <a className="nav-link" href="#">Desayuno</a>
-                            <a className="nav-link" href="#">Almuerzo</a>
-                            <a className="nav-link" href="#">Bebidas</a>
+                            <Link to="/" className="nav-link active" aria-current="page">Home</Link>
+                            <Link to="/category/desayuno" className="nav-link">Desayuno</Link>
+                            <Link to="/category/almuerzo" className="nav-link">Almuerzo</Link>
+                            <Link to="/category/bebidas" className="nav-link">Bebidas</Link>
                         </div>
                     </div>
+                    <CartWidget />
                 </div>
-                <CartWidget />
             </nav>
         </div>
     );
