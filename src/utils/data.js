@@ -4,7 +4,7 @@ const data = [
         title: 'título 1',
         description: 'descripción 1',
         price: 2,
-        pictureUrl: './images/desayuno.jpg',
+        pictureUrl: require('../components/images/desayuno.jpg'),
         categoryId: 'desayuno'
     },
     { 
@@ -12,7 +12,7 @@ const data = [
         title: 'título 2',
         description: 'descripción 2',
         price: 1,
-        pictureUrl: "./images/desayuno.jpg",
+        pictureUrl: require('../components/images/almuerzo.png'),
         categoryId: 'almuerzo'
     },
     { 
@@ -20,7 +20,7 @@ const data = [
         title: 'título 3',
         description: 'descripción 3',
         price: 5,
-        pictureUrl: ['./images/desayuno.jpg'],
+        pictureUrl: require('../components/images/bebidas.jpg'),
         categoryId: 'bebidas'
     }
 ];
