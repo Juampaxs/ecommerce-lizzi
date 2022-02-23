@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import ItemCount from "./ItemCount";
 
 function Item ({ item }) {
     return (
@@ -8,10 +7,9 @@ function Item ({ item }) {
                 <div className="card-body">
                     <h5 className="card-title">{item.title}</h5>
                     <p className="card-text">{item.description}</p>
-                    <p className="card-text">{item.price}</p>
-                    <ItemCount stock='5' initial='1' /> 
+                    <p className="card-text">{item.price}</p> 
                     <p></p>
-                    <Link to={'/item/' + item.id} className="btn btn-primary">Ver Detalle</Link>
+                    <Link to={`/item/${item.id}`} className="btn btn-primary">Ver Detalle</Link>
                 </div>
             </div>
     );

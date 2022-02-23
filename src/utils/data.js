@@ -5,7 +5,8 @@ const data = [
         description: 'descripción 1',
         price: 2,
         pictureUrl: require('../components/images/desayuno.jpg'),
-        categoryId: 'desayuno'
+        categoryId: 'desayuno',
+        stock: 10
     },
     { 
         id: 2,
@@ -13,7 +14,8 @@ const data = [
         description: 'descripción 2',
         price: 1,
         pictureUrl: require('../components/images/almuerzo.png'),
-        categoryId: 'almuerzo'
+        categoryId: 'almuerzo',
+        stock: 10
     },
     { 
         id: 3,
@@ -21,7 +23,8 @@ const data = [
         description: 'descripción 3',
         price: 5,
         pictureUrl: require('../components/images/bebidas.jpg'),
-        categoryId: 'bebidas'
+        categoryId: 'bebidas',
+        stock: 10
     }
 ];
 
