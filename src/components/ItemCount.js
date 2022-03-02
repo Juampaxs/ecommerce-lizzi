@@ -3,16 +3,18 @@ import { useState } from "react";
 function ItemCount ({ stock, initial, onAdd })  {
     const [items, setItems] = useState(initial);
 
-    const incrementar = () => {
+    const incrementar = (e) => {
         if (stock > items) {
             setItems(items+1);
         }
+        e.stopPropagation();
     }
 
-    const decrementar = () => {
+    const decrementar = (e) => {
         if (items > 0) {
             setItems(items-1);
         }
+        e.stopPropagation();
     }
 
     return (

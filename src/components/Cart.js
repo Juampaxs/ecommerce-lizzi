@@ -15,11 +15,13 @@ const Cart = () => {
             {
                 context.cartList.length > 0 ?
                 context.cartList.map(item => {
-                    <div className="card mb-3">
-                        <p>{item.description}</p>
-                        <img className="card-img-top" src={item.pictureUrl} alt="Cargando..." width="200" height="100" />
-                        <button onClick={() => context.removeItem(item.id)}>Eliminar</button>
-                    </div>
+                    return (
+                        <div className="card mb-3">
+                            <p>{item.description}</p>
+                            <img className="card-img-top" src={item.pictureUrl} alt="Cargando..." width="100" height="300" />
+                            <button onClick={() => context.removeItem(item.id)}>Eliminar</button>
+                        </div>
+                    )
                 }) : ''
             }
         </div>
