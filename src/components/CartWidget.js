@@ -8,7 +8,7 @@ const CartWidget = () => {
   const badge = useContext(CartContext);
 
   return (
-    <Badge badgeContent={2} color="primary">
+    <Badge badgeContent={badge.calcularCantItems} color="primary">
       <ShoppingCartOutlined  />
     </Badge>
   );

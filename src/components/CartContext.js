@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const CartContext = createContext();
 
 const CartContextProvider = ({children}) => {
-    const [cartList, setCartList] = useState([2]);
+    const [cartList, setCartList] = useState([]);
 
     const addToCart = (item, quantity) => {
         if (!isInCart(item.id)) {
@@ -15,11 +15,14 @@ const CartContextProvider = ({children}) => {
                 pictureUrl: item.pictureUrl,
                 quantity: quantity
             }]);
+        } else {
+            item.quantity += quantity;
         }
     }
 
     const removeItem = (id) => {
-        //remover item
+        let data = cartList.filter(item => item.id !== id);
+        setCartList(data);
     }
 
     const clear = () => {
@@ -27,11 +30,15 @@ const CartContextProvider = ({children}) => {
     }
 
     const isInCart = (id) => {
-        const elem = cartList.find(element => element.id = id);
-        if (elem != undefined) {
+        const elem = cartList.find(element => element.id === id);
+        if (elem !== undefined) {
             return true;
         }
         return false;
+    }
+
+    const calcularCantItems = () => {
+        
     }
 
     return (
