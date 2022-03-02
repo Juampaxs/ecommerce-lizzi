@@ -13,6 +13,7 @@ const CartContextProvider = ({children}) => {
                 id: item.id,
                 description: item.description,
                 pictureUrl: item.pictureUrl,
+                price: item.price,
                 quantity: quantity
             }]);
         } else {

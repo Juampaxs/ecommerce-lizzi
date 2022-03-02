@@ -18,6 +18,8 @@ const Cart = () => {
                     return (
                         <div className="card mb-3">
                             <p>{item.description}</p>
+                            <p>Cantidad: {item.quantity}</p>
+                            <p>Precio: ${item.price}</p>
                             <img className="card-img-top" src={item.pictureUrl} alt="Cargando..." width="100" height="300" />
                             <button onClick={() => context.removeItem(item.id)}>Eliminar</button>
                         </div>
