@@ -18,13 +18,13 @@ function ItemCount ({ stock, initial, onAdd })  {
     }
 
     return (
-        <div className="item-count-container">
-            <div className="btn-group">
-                <button onClick={decrementar}>-</button>
-                <div>{items}</div>
-                <button onClick={incrementar}>+</button>
-                <button onClick={() => onAdd(items)}>Agregar al carrito</button>
+        <div className="item-count-container card-actions">
+            <div className="btn-group py-2">
+                <button className="btn btn-outline-primary btn-sm" onClick={decrementar}>-</button>
+                <button className="btn btn-outline-primary btn-sm disabled">{items}</button>
+                <button className="btn btn-outline-primary btn-sm" onClick={incrementar}>+</button>
             </div>
+            <button className="btn btn-primary" onClick={() => onAdd(items)}>Agregar al carrito</button>
         </div>
     );
 }

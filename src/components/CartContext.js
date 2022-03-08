@@ -6,7 +6,8 @@ const CartContextProvider = ({children}) => {
     const [cartList, setCartList] = useState([]);
 
     const addToCart = (item, quantity) => {
-        if (!isInCart(item.id)) {
+        let found = isInCart(item.id);
+        if (found === undefined) {
             setCartList([
                 ...cartList,
                 {
@@ -17,7 +18,10 @@ const CartContextProvider = ({children}) => {
                 quantity: quantity
             }]);
         } else {
-            item.quantity += quantity;
+            found.quantity += quantity;
+            setCartList([
+                ...cartList
+            ]);
         }
     }
 
@@ -31,19 +35,23 @@ const CartContextProvider = ({children}) => {
     }
 
     const isInCart = (id) => {
-        const elem = cartList.find(element => element.id === id);
-        if (elem !== undefined) {
-            return true;
-        }
-        return false;
+        return cartList.find(element => element.id === id);
     }
 
     const calcularCantItems = () => {
-        
+        let qty = 0;
+        cartList.forEach(element => qty = qty + element.quantity);
+        return qty;
+    }
+
+    const calcularCostoTotal = () => {
+        let totalCost = 0;
+        cartList.forEach(element => totalCost = totalCost + (element.quantity * element.price));
+        return totalCost;
     }
 
     return (
-        <CartContext.Provider value={{cartList, addToCart, removeItem, clear, isInCart}}>
+        <CartContext.Provider value={{cartList, addToCart, removeItem, clear, isInCart, calcularCantItems, calcularCostoTotal}}>
             {children}
         </CartContext.Provider>
     );

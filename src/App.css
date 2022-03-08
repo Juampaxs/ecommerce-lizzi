@@ -54,6 +54,28 @@
 }
 
 .card {
-  max-width: 33%;
+  max-width: 25rem;
+  margin: 2rem;
+  text-align: center;
+}
+
+.item-list-container {
+  display: flex;
+  justify-content: center;
+}
+
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-group {
+  justify-content: center;
+}
+
+.precio-total {
+  font-size: 2rem;
+  font-style: italic;
 }
 

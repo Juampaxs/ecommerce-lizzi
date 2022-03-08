@@ -4,27 +4,33 @@ import { CartContext } from "./CartContext";
 
 const Cart = () => {
     const context = useContext(CartContext);
+
     return (
         <div>
-            <Link to="/"><button>Seguir comprando</button></Link>
+            <Link to="/"><button className="btn btn-primary">Seguir comprando</button></Link>
             {
                 context.cartList.length > 0 ?
-                <button onClick={context.clear}>Eliminar todos los productos</button> :
+                <button className="btn btn-outline-danger" onClick={context.clear}>Eliminar todos los productos</button> :
                 <p>Tu carrito está vacío..</p>
             }
             {
                 context.cartList.length > 0 ?
                 context.cartList.map(item => {
                     return (
-                        <div className="card mb-3">
+                        <div key={item.id} className="card mb-3">
                             <p>{item.description}</p>
                             <p>Cantidad: {item.quantity}</p>
-                            <p>Precio: ${item.price}</p>
+                            <p>Precio unitario: ${item.price}</p>
+                            <p>Precio total: ${item.price * item.quantity}</p>
                             <img className="card-img-top" src={item.pictureUrl} alt="Cargando..." width="100" height="300" />
-                            <button onClick={() => context.removeItem(item.id)}>Eliminar</button>
+                            <button className="btn btn-outline-danger" onClick={() => context.removeItem(item.id)}>Eliminar</button>
                         </div>
                     )
                 }) : ''
+            }
+            {
+                context.cartList.length > 0 ? 
+                <p className="precio-total">Precio total de la compra: ${context.calcularCostoTotal()}</p> : ''
             }
         </div>
     )
