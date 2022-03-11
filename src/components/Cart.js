@@ -1,9 +1,49 @@
+import { collection, doc, increment, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import db from "../utils/firebaseConfig";
 import { CartContext } from "./CartContext";
 
 const Cart = () => {
     const context = useContext(CartContext);
+    const createOrder = () => {
+        let order = {
+            buyer: {
+                email: 'juan.lizzi@mail.com',
+                name: 'Juan Lizzi',
+                phone: '1122334455'
+            },
+            items: context.cartList.map(e => {
+                return {
+                    id: e.id,
+                    price: e.price,
+                    title: e.title,
+                    quantity: e.quantity
+                }
+            }),
+            date: serverTimestamp(),
+            total: context.calcularCostoTotal()
+        };
+        const createOrderInFirestore = async () => {
+            const newOrderRef = doc(collection(db, "orders"));
+            await setDoc(newOrderRef, order);
+            return newOrderRef;
+        }
+    
+        createOrderInFirestore()
+            .then(result => {
+                alert('Tu orden ha sido creada: ' + result.id);
+                context.cartList.map(async (item) => {
+                    const itemRef = doc(db, "products", item.id);
+                    await updateDoc(itemRef, {
+                        stock: increment(-item.quantity)
+                    })
+                })
+                context.clear();
+            })
+            .catch(error => console.log(error));
+
+    }
 
     return (
         <div>
@@ -30,7 +70,10 @@ const Cart = () => {
             }
             {
                 context.cartList.length > 0 ? 
-                <p className="precio-total">Precio total de la compra: ${context.calcularCostoTotal()}</p> : ''
+                <div>
+                    <p className="precio-total">Precio total de la compra: ${context.calcularCostoTotal()}</p>
+                    <button className="btn btn-outline-primary" onClick={createOrder}>Finalizar compra</button>
+                </div> : ''
             }
         </div>
     )

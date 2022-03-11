@@ -9,9 +9,6 @@ function ItemDetailContainer () {
     const {id} = useParams();
 
     useEffect(() => {
-        //customFetch(data.find(item => item.id === parseInt(id)), 2000)
-        //    .then(result => setProduct(result))
-        //    .catch(error => console.log(error));
         firestoreFetchOne(id)
             .then(result => setProduct(result))
             .catch(error => console.log(error));
