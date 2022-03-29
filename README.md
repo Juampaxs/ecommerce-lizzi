@@ -1,3 +1,9 @@
+# Ecommerce - Lizzi
+Pagina web de compra de alimentos para el consumo en el local o para llevar.
+
+# Autor
+Juan Pablo Lizzi
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

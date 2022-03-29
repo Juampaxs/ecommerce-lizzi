@@ -17,7 +17,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
-        <div>Footer</div>
+        <div className='footer'>Lizzi's Café todos los derechos reservados</div>
       </BrowserRouter>
     </CartContextProvider>
   );
